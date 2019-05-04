@@ -30,28 +30,28 @@ script:
 matrix:
   fast_finish: true
   include:
-   - go: "1.5.x" # no pcapgo support in 1.5.x due to x/sys/unix
-     install:
-      - go get github.com/google/gopacket
-      - go get github.com/google/gopacket/layers
-      - go get github.com/google/gopacket/tcpassembly
-      - go get github.com/google/gopacket/reassembly
-     script:
-      - go test github.com/google/gopacket
-      - go test github.com/google/gopacket/layers
-      - go test github.com/google/gopacket/tcpassembly
-      - go test github.com/google/gopacket/reassembly
-   - go: "1.6.x" # no pcapgo support in 1.6.x due to x/sys/unix
-     install:
-      - go get github.com/google/gopacket
-      - go get github.com/google/gopacket/layers
-      - go get github.com/google/gopacket/tcpassembly
-      - go get github.com/google/gopacket/reassembly
-     script:
-      - go test github.com/google/gopacket
-      - go test github.com/google/gopacket/layers
-      - go test github.com/google/gopacket/tcpassembly
-      - go test github.com/google/gopacket/reassembly
+  - go: "1.5.x"
+    install:
+     - go get github.com/google/gopacket
+     - go get github.com/google/gopacket/layers
+     - go get github.com/google/gopacket/tcpassembly
+     - go get github.com/google/gopacket/reassembly
+    script:
+     - go test github.com/google/gopacket
+     - go test github.com/google/gopacket/layers
+     - go test github.com/google/gopacket/tcpassembly
+     - go test github.com/google/gopacket/reassembly
+  - go: "1.6.x"
+    install:
+     - go get github.com/google/gopacket
+     - go get github.com/google/gopacket/layers
+     - go get github.com/google/gopacket/tcpassembly
+     - go get github.com/google/gopacket/reassembly
+    script:
+     - go test github.com/google/gopacket
+     - go test github.com/google/gopacket/layers
+     - go test github.com/google/gopacket/tcpassembly
+     - go test github.com/google/gopacket/reassembly
   allow_failures:
     - go: master
 

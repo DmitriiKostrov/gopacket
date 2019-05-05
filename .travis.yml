@@ -15,8 +15,10 @@ addons:
     packages:
       libpcap-dev
 
+# 1.5 and 1.6 need special handling (see .travis.install.sh)
 install: ./.travis.install.sh
 
+# 1.5 and 1.6 need special handling (see .travis.script.sh)
 script: ./.travis.script.sh
 
 matrix:
@@ -26,6 +28,11 @@ matrix:
 
 jobs:
   include:
+    - os: osx
+      go: 1.x
+    - os: windows
+      go: 1.x
+      before_install: choco install winpcap
     - stage: style
       name: "fmt/vet/lint"
       go: 1.x
